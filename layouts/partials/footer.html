@@ -1,0 +1,21 @@
+<footer style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #888; font-family: monospace;">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <!-- Left Side: License & RSS -->
+    <div>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">CC BY 4.0</a>
+      <span style="margin: 0 0.3rem;">•</span>
+      <a href="{{ "index.xml" | absURL }}" style="color: inherit; text-decoration: underline;">RSS</a>
+    </div>
+
+    <!-- Right Side: Commit -->
+    <div>
+      {{ $commitHash := getenv "HUGO_COMMIT_HASH" }}
+
+      {{ if $commitHash }}
+        <a href="https://github.com/HehBot/hehbot.dev/commit/{{ $commitHash }}" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">source@{{ $commitHash }}</a>
+      {{ else }}
+        built locally
+      {{ end }}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,20 @@
+<header>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2><a href="/">{{ .Site.Title }}</a></h2>
+
+    <button id="themeToggle" style="background: none; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 8px 10px; border-radius: 6px; font-size: 0.85rem;">
+      🌓
+    </button>
+  </div>
+</header>
+
+<script>
+  // Event listener works regardless of which page loads this partial
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>

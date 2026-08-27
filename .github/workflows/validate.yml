@@ -1,0 +1,24 @@
+name: Validate Post Metadata
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository with Full Git History
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Critical for git log history checks
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Post Metadata Validation
+        run: python3 scripts/validate-posts.py
