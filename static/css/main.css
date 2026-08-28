@@ -63,3 +63,46 @@ footer a, .post-meta a {
 footer a:hover, .post-meta a:hover {
   opacity: 1;
 }
+
+/* Remove default list styling */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Row styling with bottom separator border */
+.post-row {
+  display: flex;
+  align-items: baseline;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border); /* Fixed variable name */
+  gap: 1rem; /* Space between date and title */
+}
+
+/* Remove bottom border on the very last row */
+.post-row:last-child {
+  border-bottom: none;
+}
+
+/* Distinct monospace font for the date and post number */
+.post-date,
+.post-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--meta); /* Fixed variable name */
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Title styling */
+.post-title {
+  color: var(--text); /* Fixed variable name */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.post-title:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
